@@ -1,0 +1,15 @@
+﻿@model EventManagement.Models.Event
+<h1>Register for @Model.Title</h1>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+}
+
+<p><strong>Date:</strong> @Model.EventDate.ToShortDateString()</p>
+<p><strong>Current Registrations:</strong> @Model.Registrations</p>
+
+<form asp-action="RegisterConfirmed" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <button type="submit" class="btn btn-primary">Register Now</button>
+</form>

@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+    var events = ViewBag.Events as List<EventManagement.Models.Event> ?? new();
+    var messages = ViewBag.Messages as List<EventManagement.Models.ContactMessage> ?? new();
+}
+<h2>Admin Dashboard</h2>
+
+<div class="mb-4">
+    <a href="/Events" class="btn btn-outline-primary">Manage Events</a>
+    <a href="/Dashboard/Logout" class="btn btn-outline-danger">Logout</a>
+</div>
+
+<h4>Events</h4>
+<table class="table">
+    <thead><tr><th>Title</th><th>Date</th><th>Location</th><th>Registrations</th></tr></thead>
+    <tbody>
+        @foreach(var e in events)
+        {
+            <tr><td>@e.Title</td><td>@e.EventDate.ToLocalTime():g</td><td>@e.Location</td><td>@e.Registrations</td></tr>
+        }
+    </tbody>
+</table>
+
+<h4 class="mt-4">Messages</h4>
+@if (!messages.Any())
+{
+    <div class="alert alert-info">No messages yet.</div>
+}
+else
+{
+    <table class="table">
+        <thead><tr><th>Name</th><th>Email</th><th>Message</th></tr></thead>
+        <tbody>
+            @foreach(var m in messages)
+            {
+                <tr><td>@m.Name</td><td>@m.Email</td><td>@m.Message</td></tr>
+            }
+        </tbody>
+    </table>
+}

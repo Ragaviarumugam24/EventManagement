@@ -1,0 +1,11 @@
+C:\EventManagement\EventManagement\obj\Debug\net10.0\EventManagement.fsproj.AssemblyReference.cache
+C:\EventManagement\EventManagement\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\EventManagement\EventManagement\obj\Debug\net10.0\EventManagement.AssemblyInfoInputs.cache
+C:\EventManagement\EventManagement\obj\Debug\net10.0\EventManagement.AssemblyInfo.fs
+C:\EventManagement\EventManagement\obj\Debug\net10.0\EventManagement.fsproj.CoreCompileInputs.cache
+C:\EventManagement\EventManagement\obj\Debug\net10.0\EventManagement.MvcApplicationPartsAssemblyInfo.fs
+C:\EventManagement\EventManagement\obj\Debug\net10.0\EventManagement.MvcApplicationPartsAssemblyInfo.cache
+C:\EventManagement\EventManagement\obj\Debug\net10.0\EventManagement.RazorComponent.input.cache
+C:\EventManagement\EventManagement\obj\Debug\net10.0\RazorDeclaration\Views\Events\Create.razor.g.cs
+C:\EventManagement\EventManagement\obj\Debug\net10.0\RazorDeclaration\Views\Registration\Register.razor.g.cs
+C:\EventManagement\EventManagement\obj\Debug\net10.0\EventManagement.RazorComponent.output.cache

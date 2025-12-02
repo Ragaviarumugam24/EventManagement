@@ -1,0 +1,27 @@
+﻿@model EventManagement.Models.Event
+@{
+    ViewData["Title"] = "Register";
+}
+<h2>Register for @Model.Title</h2>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">@ViewBag.Message</div>
+}
+
+<form asp-action="RegisterConfirmed" method="post">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <div class="mb-3">
+        <label>Full name</label>
+        <input name="fullName" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label>Email</label>
+        <input name="email" class="form-control" type="email" required />
+    </div>
+    <div class="mb-3">
+        <label>Phone (optional)</label>
+        <input name="phone" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>

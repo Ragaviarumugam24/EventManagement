@@ -1,0 +1,17 @@
+﻿@model EventManagement.Models.Event
+@{
+    ViewData["Title"] = "Delete Event";
+}
+<h2>Delete Event</h2>
+<div class="card p-3">
+    <h5>@Model.Title</h5>
+    <p>@Model.Description</p>
+    <p><strong>Date:</strong> @Model.EventDate.ToShortDateString()</p>
+    <p><strong>Location:</strong> @Model.Location</p>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a class="btn btn-secondary" href="/Events">Cancel</a>
+    </form>
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<linker>
+  <assembly fullname="EventManagement">
+    <resource name="FSharpSignatureData.EventManagement" action="remove"></resource>
+    <resource name="FSharpSignatureCompressedData.EventManagement" action="remove"></resource>
+    <resource name="FSharpSignatureDataB.EventManagement" action="remove"></resource>
+    <resource name="FSharpSignatureCompressedDataB.EventManagement" action="remove"></resource>
+    <resource name="FSharpOptimizationData.EventManagement" action="remove"></resource>
+    <resource name="FSharpOptimizationCompressedData.EventManagement" action="remove"></resource>
+    <resource name="FSharpOptimizationDataB.EventManagement" action="remove"></resource>
+    <resource name="FSharpOptimizationCompressedDataB.EventManagement" action="remove"></resource>
+    <resource name="FSharpOptimizationInfo.EventManagement" action="remove"></resource>
+    <resource name="FSharpSignatureInfo.EventManagement" action="remove"></resource>
+  </assembly>
+</linker>

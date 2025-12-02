@@ -1,0 +1,15 @@
+﻿@model IEnumerable<EventManagement.Models.ContactMessage>
+<h1>Messages Dashboard</h1>
+<table class="table table-bordered">
+    <thead><tr><th>Name</th><th>Email</th><th>Message</th></tr></thead>
+    <tbody>
+        @foreach (var msg in Model)
+        {
+            <tr>
+                <td>@msg.Name</td>
+                <td>@msg.Email</td>
+                <td>@msg.Message</td>
+            </tr>
+        }
+    </tbody>
+</table>

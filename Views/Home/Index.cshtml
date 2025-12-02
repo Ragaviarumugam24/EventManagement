@@ -1,0 +1,122 @@
+﻿@model IEnumerable<EventManagement.Models.Event>
+@{
+    ViewData["Title"] = "Home";
+}
+
+<style>
+    /* Hero Section */
+    .hero-wrapper {
+        padding: 60px 0;
+        background: linear-gradient(to right, #f5f7fa, #ffffff);
+        border-radius: 12px;
+        margin-bottom: 40px;
+    }
+
+    .hero-title {
+        font-size: 44px;
+        font-weight: 700;
+        color: #1e3a8a;
+        line-height: 1.2;
+    }
+
+    .hero-text {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    .btn-lg {
+        padding: 10px 25px;
+        border-radius: 8px;
+        font-size: 17px;
+    }
+
+    .btn-primary {
+        background: #2563eb;
+        border: none;
+        box-shadow: 0px 3px 12px rgba(37, 99, 235, 0.3);
+        transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+        background: #1d4ed8;
+        transform: translateY(-2px);
+    }
+
+    .btn-outline-secondary {
+        border-width: 2px;
+        font-weight: 500;
+    }
+
+    /* Event Cards */
+    .event-card {
+        border-radius: 12px;
+        transition: 0.3s;
+        border: 1px solid #e5e5e5;
+    }
+
+    .event-card:hover {
+        box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
+        transform: translateY(-4px);
+    }
+
+    .event-card h5 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #1f2937;
+    }
+
+    .event-date-text {
+        font-size: 14px;
+        color: #6b7280 !important;
+    }
+</style>
+
+<!-- HERO SECTION -->
+<div class="hero-wrapper">
+    <div class="row align-items-center">
+        <div class="col-lg-7">
+            <h1 class="hero-title">Welcome to<br />EventManagement</h1>
+            <p class="hero-text">
+                Manage events, registrations and attendees with a beautiful and simple interface.
+            </p>
+
+            <a class="btn btn-primary btn-lg me-2" href="/Events">View Events</a>
+            <a class="btn btn-outline-secondary btn-lg" href="/Contact">Contact Us</a>
+        </div>
+
+        <div class="col-lg-5 text-center">
+            <img src="/images/Event.png" alt="Events" class="img-fluid shadow-sm"
+                 style="max-height: 280px; border-radius: 12px;" />
+        </div>
+    </div>
+</div>
+
+<!-- UPCOMING EVENTS -->
+<h2 class="text-center mb-4" style="font-weight: 700; font-size: 32px;">Upcoming Events</h2>
+
+<div class="row">
+    @foreach(var ev in Model)
+    {
+        <div class="col-md-6 mb-4">
+            <div class="card event-card h-100">
+                <div class="card-body">
+                    <h5>@ev.Title</h5>
+
+                    <p class="event-date-text">
+                        @ev.EventDate.ToLocalTime():f • @ev.Location
+                    </p>
+
+                    <p>
+                        @(ev.Description.Length > 160 
+                            ? ev.Description.Substring(0,157) + "..." 
+                            : ev.Description)
+                    </p>
+
+                    <a class="btn btn-sm btn-primary me-2" href="/Events/Details/@ev.Id">Details</a>
+                    <a class="btn btn-sm btn-success" href="/Registration/Register/@ev.Id">Register</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

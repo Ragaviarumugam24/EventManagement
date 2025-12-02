@@ -1,0 +1,93 @@
+﻿@model IEnumerable<EventManagement.Models.Event>
+@{
+    ViewData["Title"] = "Events";
+}
+
+<style>
+    body {
+        background: #f4f6f9;
+    }
+
+    .page-title {
+        font-weight: 700;
+        border-left: 5px solid #0d6efd;
+        padding-left: 12px;
+    }
+
+    .event-card {
+        border-radius: 12px;
+        border: none;
+        padding: 18px;
+        background: #ffffff;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+        transition: 0.3s ease-in-out;
+    }
+
+    .event-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0px 10px 24px rgba(0,0,0,0.15);
+    }
+
+    .event-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .event-meta {
+        font-size: 0.95rem;
+        color: #6c757d;
+        margin-top: -4px;
+    }
+
+    .btn-sm {
+        padding: 4px 10px;
+        font-size: 0.85rem;
+    }
+</style>
+
+<div class="container mt-4 mb-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="page-title">All Events</h2>
+        <a class="btn btn-primary btn-lg" href="/Events/Create">+ Create Event</a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info shadow-sm p-3">
+            No events yet. Click <strong>Create Event</strong> to add your first event.
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var ev in Model)
+            {
+                <div class="col-md-6">
+                    <div class="event-card">
+
+                        <div class="event-title">@ev.Title</div>
+
+                        <div class="event-meta">
+                            @ev.EventDate.ToLocalTime():f • @ev.Location
+                        </div>
+
+                        <p class="mt-2">
+                            @(ev.Description.Length > 180 
+                                ? ev.Description.Substring(0, 177) + "..." 
+                                : ev.Description)
+                        </p>
+
+                        <div class="d-flex gap-2 mt-3">
+                            <a class="btn btn-sm btn-primary" href="/Events/Details/@ev.Id">Details</a>
+                            <a class="btn btn-sm btn-success" href="/Registration/Register/@ev.Id">Register</a>
+                            <a class="btn btn-sm btn-warning text-white" href="/Events/Edit/@ev.Id">Edit</a>
+                            <a class="btn btn-sm btn-danger" href="/Events/Delete/@ev.Id">Delete</a>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
